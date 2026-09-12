@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julio César Pacheco Rojas · PIXELBITS Studio</title>
+<meta name="description" content="Tarjeta de presentación digital de Julio César Pacheco Rojas — PIXELBITS Studio. Contacto rápido y redes.">
+<meta name="theme-color" content="#070A0F">
+
+<!-- ============================================================
+     Open Graph — vista previa al compartir por WhatsApp, Telegram, etc.
+     URL asumida: https://pacheco55.github.io/pixelbits-tarjeta/
+     Si tu usuario o el nombre del repositorio son distintos, actualiza
+     aquí, en <link rel="canonical"> y en CONFIG.URL_PAGINA del script.
+     ============================================================ -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Julio César Pacheco Rojas · PIXELBITS Studio">
+<meta property="og:description" content="Ingeniería de Software · Fundador de PIXELBITS Studio. Contacto rápido y redes.">
+<meta property="og:image" content="https://placehold.co/1200x630/070A0F/00E39B?text=PIXELBITS">
+<meta property="og:url" content="https://pacheco55.github.io/pixelbits-tarjeta/">
+<meta property="og:locale" content="es_MX">
+<link rel="canonical" href="https://pacheco55.github.io/pixelbits-tarjeta/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:            #070A0F;
+    --bg-panel:      #0D1420;
+    --bg-panel-2:    #0F1826;
+    --verde:         #00E39B;
+    --verde-dim:     #0A9B6C;
+    --morado:        #9D4EDD;
+    --morado-dim:    #6423A6;
+    --blanco:        #F5F7FA;
+    --texto:         #C9D1D9;
+    --texto-tenue:   #66727F;
+    --linea:         rgba(0, 227, 155, 0.16);
+    --rojo-dot:      #FF5F56;
+    --amarillo-dot:  #FFBD2E;
+    --verde-dot:     #27C93F;
+
+    --display: "Chakra Petch", "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --mx: 50%;
+    --my: 0%;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    margin: 0;
+    min-height: 100dvh;
+    font-family: var(--mono);
+    color: var(--texto);
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 26px 14px 60px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--verde);
+    outline-offset: 3px;
+  }
+
+  /* ---- Fondo de circuitos (ambiente, fijo) ---- */
+  .fondo-circuitos{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.55;
+  }
+
+  .fondo-circuitos .via{
+    animation: pulso-via 3.6s ease-in-out infinite;
+  }
+  .fondo-circuitos .via:nth-child(2n){ animation-delay: .6s; }
+  .fondo-circuitos .via:nth-child(3n){ animation-delay: 1.3s; }
+  .fondo-circuitos .via:nth-child(5n){ animation-delay: 2s; }
+
+  @keyframes pulso-via{
+    0%, 100%{ opacity: .25; r: 3; }
+    50%{ opacity: .9; r: 4.5; }
+  }
+
+  .fondo-circuitos .senal{
+    stroke-dasharray: 8 220;
+    animation: viajar 5s linear infinite;
+  }
+  @keyframes viajar{
+    to{ stroke-dashoffset: -460; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .fondo-circuitos .via, .fondo-circuitos .senal{ animation: none; }
+  }
+
+  /* ---- Tarjeta principal ---- */
+  main.tarjeta{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 430px;
+    background: var(--bg-panel);
+    border: 1px solid var(--linea);
+    clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px);
+    box-shadow:
+      0 0 0 1px rgba(0,227,155,0.05),
+      0 0 40px -6px rgba(0,227,155,0.25),
+      0 0 70px -20px rgba(157,78,221,0.35);
+    overflow: hidden;
+    animation: aparecer .5s ease-out both;
+  }
+
+  main.tarjeta::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(320px circle at var(--mx) var(--my), rgba(0,227,155,0.10), transparent 60%);
+    transition: background .15s ease;
+    z-index: 2;
+  }
+
+  @keyframes aparecer{
+    from{ opacity: 0; transform: translateY(12px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    main.tarjeta{ animation: none; }
+  }
+
+  /* ---- Encabezado tipo terminal ---- */
+  .encabezado{
+    position: relative;
+    z-index: 3;
+    padding: 30px 24px 24px;
+    border-bottom: 1px solid var(--linea);
+    background:
+      linear-gradient(180deg, rgba(0,227,155,0.05), transparent 70%);
+  }
+
+  .prompt{
+    font-size: 0.86rem;
+    color: var(--verde);
+  }
+
+  .prompt .cursor{
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: var(--verde);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: parpadeo 1s step-end infinite;
+  }
+
+  @keyframes parpadeo{
+    50%{ opacity: 0; }
+  }
+
+  .encabezado h1{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    color: var(--blanco);
+    margin: 10px 0 6px;
+    text-shadow: 0 0 18px rgba(0,227,155,0.35);
+    opacity: 0;
+  }
+
+  .encabezado .tagline{
+    font-size: 0.82rem;
+    color: var(--texto-tenue);
+    margin: 0;
+    opacity: 0;
+  }
+
+  .encabezado.listo h1,
+  .encabezado.listo .tagline{
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+
+  /* ---- Bloques ---- */
+  .bloque{
+    position: relative;
+    z-index: 3;
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .bloque:last-of-type{ border-bottom: none; }
+
+  .bloque h2{
+    font-family: var(--display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--morado);
+    margin: 0 0 14px;
+  }
+
+  /* ---- Terminal de contacto personal ---- */
+  ul.terminal{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 0.86rem;
+  }
+
+  ul.terminal li{
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  ul.terminal .clave{
+    color: var(--verde-dim);
+    min-width: 78px;
+  }
+
+  ul.terminal .clave::before{
+    content: "$ ";
+    color: var(--texto-tenue);
+  }
+
+  ul.terminal a, ul.terminal button.valor{
+    color: var(--texto);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+  }
+
+  ul.terminal a:hover, ul.terminal a:focus-visible,
+  ul.terminal button.valor:hover, ul.terminal button.valor:focus-visible{
+    color: var(--verde);
+    border-color: var(--verde);
+  }
+
+  .pendiente{
+    color: var(--texto-tenue) !important;
+    border-bottom: 1px dashed var(--morado-dim) !important;
+    cursor: default !important;
+  }
+
+  .pendiente:hover{ color: var(--texto-tenue) !important; }
+
+  .aviso-pendiente{
+    font-size: 0.72rem;
+    color: var(--morado);
+    width: 100%;
+    margin-top: -4px;
+  }
+
+  /* ---- Editor de código (PIXELBITS) ---- */
+  .editor{
+    background: var(--bg-panel-2);
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .editor-barra{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .editor-barra .punto{
+    width: 9px; height: 9px; border-radius: 50%;
+  }
+  .editor-barra .punto.rojo{ background: var(--rojo-dot); }
+  .editor-barra .punto.amarillo{ background: var(--amarillo-dot); }
+  .editor-barra .punto.verde{ background: var(--verde-dot); }
+
+  .editor-barra .archivo{
+    margin-left: 6px;
+    font-size: 0.72rem;
+    color: var(--texto-tenue);
+  }
+
+  .editor-codigo{
+    padding: 14px 16px;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    overflow-x: auto;
+  }
+
+  .tok-clave{ color: var(--morado); }
+  .tok-punt{ color: var(--texto-tenue); }
+  .tok-cadena{ color: var(--verde); text-decoration: none; border-bottom: 1px dashed transparent; }
+  a.tok-cadena:hover, a.tok-cadena:focus-visible{ border-color: var(--verde); }
+
+  /* ---- Panel PixelBeats (estado en vivo) ---- */
+  .panel-servidor{
+    background: var(--bg-panel-2);
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .estado-linea{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--texto-tenue);
+    margin-bottom: 10px;
+  }
+
+  .punto-live{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--verde);
+    box-shadow: 0 0 8px 1px var(--verde);
+    animation: pulso-live 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulso-live{
+    0%, 100%{ opacity: 1; }
+    50%{ opacity: .35; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .punto-live{ animation: none; }
+  }
+
+  .servidor-url{
+    font-size: 0.85rem;
+    color: var(--blanco);
+    word-break: break-all;
+    margin-bottom: 12px;
+  }
+
+  .servidor-acciones{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .boton-mini{
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--bg);
+    background: var(--verde);
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .1s ease, background .15s ease;
+  }
+
+  .boton-mini:hover{ background: var(--blanco); }
+  .boton-mini:active{ transform: scale(.96); }
+
+  .boton-mini.secundario{
+    background: transparent;
+    color: var(--morado);
+    border: 1px solid var(--morado-dim);
+  }
+
+  .boton-mini.secundario:hover{
+    background: rgba(157,78,221,0.12);
+    color: var(--blanco);
+  }
+
+  .servidor-nota{
+    font-size: 0.72rem;
+    color: var(--texto-tenue);
+    margin-top: 10px;
+  }
+
+  /* ---- QR ---- */
+  .seccion-qr{ text-align: center; }
+
+  .placa-qr{
+    display: inline-block;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px var(--linea), 0 0 24px -4px rgba(0,227,155,0.4);
+    line-height: 0;
+  }
+
+  #qrcode{ width: 168px; height: 168px; }
+  #qrcode-pagina{ width: 120px; height: 120px; }
+  #qrcode img, #qrcode canvas,
+  #qrcode-pagina img, #qrcode-pagina canvas{
+    display: block; width: 100% !important; height: 100% !important;
+  }
+
+  .nota-qr{
+    margin: 12px auto 0;
+    max-width: 280px;
+    font-size: 0.78rem;
+    color: var(--texto-tenue);
+  }
+
+  .fila-enlace{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px auto 0;
+    max-width: 280px;
+    padding: 7px 10px;
+    background: var(--bg-panel-2);
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+  }
+
+  .fila-enlace span{
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.72rem;
+    color: var(--texto-tenue);
+    text-align: left;
+  }
+
+  .fila-enlace button{
+    flex: none;
+    border: none;
+    background: none;
+    color: var(--verde);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .fila-enlace button:hover{ color: var(--blanco); }
+
+  /* ---- Descargar vCard ---- */
+  #descargar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 18px;
+    background: var(--verde);
+    color: var(--bg);
+    border: none;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+  }
+
+  #descargar:hover{ background: var(--blanco); }
+  #descargar:active{ transform: scale(.98); }
+
+  .confirmacion{
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 0.76rem;
+    color: var(--verde);
+    min-height: 1.1em;
+  }
+
+  footer.pie{
+    position: relative;
+    z-index: 3;
+    padding: 14px 24px 20px;
+    text-align: center;
+    font-size: 0.68rem;
+    color: var(--texto-tenue);
+  }
+
+  footer.pie strong{ color: var(--verde-dim); }
+
+  @media (min-width: 760px){
+    body{ padding: 60px 20px; }
+    main.tarjeta{ max-width: 700px; }
+    .paneles-info{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .paneles-info .bloque:first-child{
+      border-right: 1px solid var(--linea);
+    }
+    .encabezado{ padding: 40px 32px 30px; }
+    .encabezado h1{ font-size: 1.9rem; }
+    footer.pie{ padding: 16px 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="fondo-circuitos" viewBox="0 0 800 1400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g fill="none" stroke="#00E39B" stroke-width="1.2" opacity="0.5">
+    <path d="M0 120 H180 V260 H420" />
+    <path class="senal" d="M0 120 H180 V260 H420" stroke="#00E39B" stroke-width="2" opacity="0.9"/>
+    <path d="M800 300 H600 V180 H360 V60" />
+    <path d="M0 600 H140 V740 H340 V900" />
+    <path d="M800 780 H540 V920 H300 V1060" />
+    <path class="senal" d="M800 780 H540 V920 H300 V1060" stroke="#9D4EDD" stroke-width="2" opacity="0.8"/>
+    <path d="M0 1100 H220 V1240" />
+    <path d="M800 1180 H640 V1340 H420" />
+  </g>
+  <g fill="#00E39B" opacity="0.7">
+    <circle class="via" cx="180" cy="120" r="3.4"/>
+    <circle class="via" cx="420" cy="260" r="3.4"/>
+    <circle class="via" cx="600" cy="300" r="3.4"/>
+    <circle class="via" cx="360" cy="180" r="3.4"/>
+    <circle class="via" cx="140" cy="600" r="3.4"/>
+    <circle class="via" cx="340" cy="740" r="3.4"/>
+  </g>
+  <g fill="#9D4EDD" opacity="0.7">
+    <circle class="via" cx="540" cy="780" r="3.4"/>
+    <circle class="via" cx="300" cy="920" r="3.4"/>
+    <circle class="via" cx="220" cy="1100" r="3.4"/>
+    <circle class="via" cx="640" cy="1180" r="3.4"/>
+    <circle class="via" cx="420" cy="1340" r="3.4"/>
+  </g>
+</svg>
+
+<main class="tarjeta">
+
+  <header class="encabezado" id="encabezado">
+    <p class="prompt" id="prompt-linea"><span id="texto-prompt"></span><span class="cursor"></span></p>
+    <h1>Julio César Pacheco Rojas</h1>
+    <p class="tagline">// Ingeniería de Software · Fundador de PIXELBITS Studio</p>
+  </header>
+
+  <div class="paneles-info">
+
+    <section class="bloque" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto">contacto.rápido</h2>
+      <ul class="terminal" id="lista-contacto">
+        <li>
+          <span class="clave">facebook</span>
+          <a id="lnk-facebook" target="_blank" rel="noopener">/julioPacheco</a>
+        </li>
+        <li>
+          <span class="clave">instagram</span>
+          <a id="lnk-instagram" target="_blank" rel="noopener">—</a>
+        </li>
+        <li>
+          <span class="clave">correo</span>
+          <button type="button" class="valor" id="btn-correo">pachecoyeah55@gmail.com</button>
+        </li>
+        <li>
+          <span class="clave">teléfono</span>
+          <button type="button" class="valor" id="btn-telefono">+52 55 5930 0286</button>
+        </li>
+      </ul>
+    </section>
+
+    <section class="bloque" aria-labelledby="titulo-pixelbits">
+      <h2 id="titulo-pixelbits">pixelbits.socials</h2>
+      <div class="editor">
+        <div class="editor-barra">
+          <span class="punto rojo"></span><span class="punto amarillo"></span><span class="punto verde"></span>
+          <span class="archivo">brand.socials.ts</span>
+        </div>
+        <div class="editor-codigo">
+          <span class="tok-clave">const</span> PIXELBITS <span class="tok-punt">= {</span><br>
+          &nbsp;&nbsp;github<span class="tok-punt">:</span> <a class="tok-cadena" id="lnk-github" target="_blank" rel="noopener">"github.com/Pacheco55"</a><span class="tok-punt">,</span><br>
+          &nbsp;&nbsp;twitch<span class="tok-punt">:</span> <a class="tok-cadena" id="lnk-twitch" target="_blank" rel="noopener">"twitch.tv/pixelbits_studio"</a><span class="tok-punt">,</span><br>
+          &nbsp;&nbsp;instagram<span class="tok-punt">:</span> <a class="tok-cadena" id="lnk-ig-pb" target="_blank" rel="noopener">"instagram.com/pixelbits_studios"</a><span class="tok-punt">,</span><br>
+          &nbsp;&nbsp;facebook<span class="tok-punt">:</span> <a class="tok-cadena" id="lnk-fb-pb" target="_blank" rel="noopener">—</a><span class="tok-punt">,</span><br>
+          &nbsp;&nbsp;twitter<span class="tok-punt">:</span> <a class="tok-cadena" id="lnk-x-pb" target="_blank" rel="noopener">"x.com/pixelbitstud"</a><span class="tok-punt">,</span><br>
+          <span class="tok-punt">};</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="bloque" aria-labelledby="titulo-servidor">
+    <h2 id="titulo-servidor">pixelbeats.status</h2>
+    <div class="panel-servidor">
+      <div class="estado-linea">
+        <span class="punto-live"></span> servidor propio · IP dinámica
+      </div>
+      <div class="servidor-url" id="servidor-url">—</div>
+      <div class="servidor-acciones">
+        <button type="button" class="boton-mini" id="btn-abrir-servidor">Abrir</button>
+        <button type="button" class="boton-mini secundario" id="btn-copiar-servidor">Copiar</button>
+      </div>
+      <p class="servidor-nota" id="servidor-nota">Última actualización: pendiente de definir.</p>
+    </div>
+  </section>
+
+  <section class="bloque seccion-qr" aria-labelledby="titulo-qr">
+    <h2 id="titulo-qr" style="text-align:left;">guardar.contacto</h2>
+    <div class="placa-qr">
+      <div id="qrcode" role="img" aria-label="Código QR con la ficha de contacto de Julio César Pacheco Rojas en formato vCard"></div>
+    </div>
+    <p class="nota-qr">Escanéalo con la cámara para guardar el contacto al instante.</p>
+  </section>
+
+  <section class="bloque zona-accion">
+    <button type="button" id="descargar">↓ Descargar contacto (.vcf)</button>
+    <p class="confirmacion" id="confirmacion" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="bloque seccion-qr" aria-labelledby="titulo-qr-pagina">
+    <h2 id="titulo-qr-pagina" style="text-align:left;">compartir.tarjeta</h2>
+    <div class="placa-qr">
+      <div id="qrcode-pagina" role="img" aria-label="Código QR que enlaza a esta tarjeta digital"></div>
+    </div>
+    <p class="nota-qr">Escanéalo para abrir esta misma página en cualquier dispositivo.</p>
+    <div class="fila-enlace">
+      <span id="texto-enlace-pagina"></span>
+      <button type="button" id="copiar-enlace-pagina">Copiar</button>
+    </div>
+  </section>
+
+  <footer class="pie">Tarjeta digital · <strong>PIXELBITS Studio</strong></footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // ==============================================================
+  // CONFIG — datos editables de la tarjeta.
+  // Los campos marcados "TU_..." son placeholders: reemplázalos
+  // antes de publicar. Mientras tengan ese valor, la tarjeta los
+  // muestra visualmente como "pendientes" en vez de enlaces rotos.
+  // ==============================================================
+  const CONFIG = {
+    nombre: 'Julio César Pacheco Rojas',
+    facebookPersonal: 'https://www.facebook.com/profile.php?id=61576453055981&locale=es_LA',
+    instagramPersonal: 'https://www.instagram.com/pachecoyeah5/',   // ej. https://instagram.com/tu_usuario
+    correo: 'pachecoyeah55@gmail.com',
+    telefono: '+525559300286',
+    telefonoVisible: '+52 55 5930 0286',
+
+    pixelbitsGithub: 'https://github.com/Pacheco55/PIXELBITS-Studio-blog',
+    pixelbitsTwitch: 'https://www.twitch.tv/pixelbits_studio/about',
+    pixelbitsInstagram: 'https://www.instagram.com/pixelbits_studios/',
+    pixelbitsTwitter: 'https://x.com/pixelbitstud',
+
+    // Servidor propio de PixelBeats — la IP/URL cambia con frecuencia.
+    // Actualiza esta línea cada vez que cambie.
+    pixelbeatsUrl: 'https://rsc133mp-5150.usw3.devtunnels.ms/',      // ej. http://181.xxx.xxx.xxx:8080
+    pixelbeatsActualizado: '12-SEP-26',      // ej. 12 sep 2026
+
+    // URL final de esta tarjeta en GitHub Pages.
+    urlPagina: 'https://pacheco55.github.io/pixelbits-tarjeta/'
+  };
+
+  const esPendiente = (valor) => typeof valor === 'string' && valor.startsWith('TU_');
+
+  function enlazar(id, url, textoSiPendiente){
+    const el = document.getElementById(id);
+    if (esPendiente(url)){
+      el.textContent = textoSiPendiente || '· pendiente de configurar ·';
+      el.classList.add('pendiente');
+      el.removeAttribute('href');
+    } else {
+      el.href = url;
+    }
+  }
+
+  function construirVCard(){
+    const lineas = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'N:Pacheco Rojas;Julio César;;;',
+      'FN:' + CONFIG.nombre,
+      'ORG:PIXELBITS Studio',
+      'TEL;TYPE=CELL,VOICE,PREF:' + CONFIG.telefono,
+      'EMAIL;TYPE=INTERNET:' + CONFIG.correo,
+      'URL:' + CONFIG.facebookPersonal,
+      'NOTE:PIXELBITS Studio — ' + CONFIG.pixelbitsGithub +
+        (esPendiente(CONFIG.instagramPersonal) ? '' : ' · IG: ' + CONFIG.instagramPersonal),
+      'END:VCARD'
+    ];
+    return lineas.join('\r\n');
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+
+    // ---- Enlaces de contacto personal ----
+    document.getElementById('lnk-facebook').href = CONFIG.facebookPersonal;
+    enlazar('lnk-instagram', CONFIG.instagramPersonal);
+    if (!esPendiente(CONFIG.instagramPersonal)){
+      document.getElementById('lnk-instagram').textContent =
+        CONFIG.instagramPersonal.replace(/^https?:\/\/(www\.)?instagram\.com\//, '/');
+    }
+
+    document.getElementById('btn-correo').addEventListener('click', function(){
+      copiarTexto(CONFIG.correo, this);
+    });
+    document.getElementById('btn-telefono').addEventListener('click', function(){
+      copiarTexto(CONFIG.telefonoVisible, this);
+    });
+
+    // ---- Enlaces de PIXELBITS ----
+    document.getElementById('lnk-github').href = CONFIG.pixelbitsGithub;
+    document.getElementById('lnk-twitch').href = CONFIG.pixelbitsTwitch;
+    document.getElementById('lnk-ig-pb').href = CONFIG.pixelbitsInstagram;
+    document.getElementById('lnk-x-pb').href = CONFIG.pixelbitsTwitter;
+    enlazar('lnk-fb-pb', CONFIG.pixelbitsFacebook, '"pendiente"');
+
+    // ---- Panel PixelBeats ----
+    const urlServidorEl = document.getElementById('servidor-url');
+    const notaServidorEl = document.getElementById('servidor-nota');
+    const btnAbrirServidor = document.getElementById('btn-abrir-servidor');
+
+    if (esPendiente(CONFIG.pixelbeatsUrl)){
+      urlServidorEl.textContent = '· define la URL/IP en CONFIG.pixelbeatsUrl ·';
+      urlServidorEl.style.color = 'var(--texto-tenue)';
+      btnAbrirServidor.disabled = true;
+      btnAbrirServidor.style.opacity = '0.4';
+    } else {
+      urlServidorEl.textContent = CONFIG.pixelbeatsUrl;
+      btnAbrirServidor.addEventListener('click', function(){
+        window.open(CONFIG.pixelbeatsUrl, '_blank', 'noopener');
+      });
+    }
+    notaServidorEl.textContent = 'Última actualización: ' + CONFIG.pixelbeatsActualizado + '.';
+
+    document.getElementById('btn-copiar-servidor').addEventListener('click', function(){
+      if (!esPendiente(CONFIG.pixelbeatsUrl)) copiarTexto(CONFIG.pixelbeatsUrl, this);
+    });
+
+    // ---- QR 1: vCard ----
+    new QRCode(document.getElementById('qrcode'), {
+      text: construirVCard(),
+      width: 168,
+      height: 168,
+      colorDark: '#070A0F',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+
+    // ---- QR 2: enlace a esta página ----
+    new QRCode(document.getElementById('qrcode-pagina'), {
+      text: CONFIG.urlPagina,
+      width: 120,
+      height: 120,
+      colorDark: '#070A0F',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+
+    document.getElementById('texto-enlace-pagina').textContent =
+      CONFIG.urlPagina.replace(/^https?:\/\//, '');
+
+    document.getElementById('copiar-enlace-pagina').addEventListener('click', function(){
+      copiarTexto(CONFIG.urlPagina, this);
+    });
+
+    // ---- Descargar vCard ----
+    const confirmacion = document.getElementById('confirmacion');
+    document.getElementById('descargar').addEventListener('click', function(){
+      const blob = new Blob([construirVCard()], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const enlace = document.createElement('a');
+      enlace.href = url;
+      enlace.download = 'Julio_Pacheco.vcf';
+      document.body.appendChild(enlace);
+      enlace.click();
+      document.body.removeChild(enlace);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+      confirmacion.textContent = 'Contacto descargado.';
+      setTimeout(function(){ confirmacion.textContent = ''; }, 2500);
+    });
+
+    // ---- Efecto de escritura en el prompt del encabezado ----
+    const textoPromptEl = document.getElementById('texto-prompt');
+    const encabezadoEl = document.getElementById('encabezado');
+    const reducirMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const textoPrompt = '$ whoami';
+
+    if (reducirMovimiento){
+      textoPromptEl.textContent = textoPrompt;
+      encabezadoEl.classList.add('listo');
+    } else {
+      let i = 0;
+      const escribir = setInterval(function(){
+        i++;
+        textoPromptEl.textContent = textoPrompt.slice(0, i);
+        if (i >= textoPrompt.length){
+          clearInterval(escribir);
+          setTimeout(function(){ encabezadoEl.classList.add('listo'); }, 200);
+        }
+      }, 55);
+    }
+
+    // ---- Glow que sigue al cursor sobre la tarjeta ----
+    const tarjeta = document.querySelector('main.tarjeta');
+    if (!reducirMovimiento && window.matchMedia('(hover: hover)').matches){
+      tarjeta.addEventListener('mousemove', function(e){
+        const r = tarjeta.getBoundingClientRect();
+        tarjeta.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        tarjeta.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    }
+  });
+
+  async function copiarTexto(texto, boton){
+    const original = boton.textContent;
+    try{
+      await navigator.clipboard.writeText(texto);
+      boton.textContent = 'copiado';
+    }catch(err){
+      boton.textContent = 'no se pudo copiar';
+    }
+    setTimeout(function(){ boton.textContent = original; }, 1600);
+  }
+</script>
+
+</body>
+</html>
